@@ -85,6 +85,24 @@ class Jungle_best_test < Minitest::Test
     assert_equal jb.count, 5
   end
 
+  def test_it_can_pop_one_node
+    jb = JungleBeat.new('woot who cool something')
 
+    assert_equal 'something', jb.tail.data
+
+    jb.pop
+
+    assert_equal 'cool', jb.tail.data
+  end
+
+  def test_it_can_pop_mutiple
+    jb = JungleBeat.new('woot who cool something')
+
+    assert_equal 'something', jb.tail.data
+
+    assert_equal 'cool something',jb.pop(2)
+
+    assert_equal 'who', jb.tail.data
+  end
 
 end

@@ -66,5 +66,19 @@ class JungleBeat
     count
   end
 
+  def pop(num = 1)
+    current = head
+    popped = []
+    num.times do
+      until current.link.link.nil?
+        current = current.link
+      end
+      popped << current.link.data
+      current.link = nil
+      current = head
+    end
+    popped.reverse.join(' ')
+  end
+
 
 end
