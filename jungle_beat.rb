@@ -56,6 +56,15 @@ class JungleBeat
     tail.link = last
   end
 
+  def count
+    count = 1
+    current = head
+    until current.link.nil?
+      count += 1
+      current = current.link
+    end
+    count
+  end
 
 
 end

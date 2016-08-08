@@ -65,15 +65,26 @@ class Jungle_best_test < Minitest::Test
   end
 
   def test_it_can_prepend_multiple
-    jb = JungleBeat.new('dee')
+    jb = JungleBeat.new('dee whoa')
 
     assert_equal 'dee', jb.head?
 
     jb.prepend('woot cool yeah')
 
     assert_equal 'woot', jb.head?
-    assert_equal 'dee', jb.tail.data
+    assert_equal 'whoa', jb.tail.data
   end
+
+  def test_it_can_count_nodes
+    jb = JungleBeat.new('woot who cool something')
+
+    assert_equal jb.count, 4
+
+    jb.append('cool')
+
+    assert_equal jb.count, 5
+  end
+
 
 
 end
